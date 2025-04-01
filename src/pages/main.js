@@ -1,80 +1,48 @@
-import React, { useState, useEffect } from "react";
-import { Alert, ActivityIndicator } from "react-native";
-import {
-  Container,
-  PaletteContainer,
-  ColorBox,
-  ColorText,
-  GenerateButton,
-  ButtonText,
-  LogoutButton,
-  LogoutButtonText,
-  LoadingContainer,
-} from "../styles";
-import { generatePalette } from "../services/api";
+import React from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Main = () => {
-  const [palette, setPalette] = useState([]);
-  const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
-  const fetchPalette = async () => {
-    setLoading(true);
-    try {
-      const colors = await generatePalette();
-      setPalette(colors);
-    } catch (error) {
-      Alert.alert("Erro", "Falha ao gerar paleta");
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchPalette();
-  }, []);
-
-  const copyToClipboard = (hex) => {
-    Alert.alert("Cor copiada!", hex);
-  };
-
-  const handleLogout = () => {
-    navigation.navigate("Login");
-  };
-
   return (
-    <Container>
-      {loading ? (
-        <LoadingContainer>
-          <ActivityIndicator size="large" color="#210518" />
-        </LoadingContainer>
-      ) : (
-        <>
-          <PaletteContainer>
-            {palette.map((color, index) => (
-              <ColorBox
-                key={index}
-                onPress={() => copyToClipboard(color)}
-                style={{ backgroundColor: color }}
-              >
-                <ColorText>{color}</ColorText>
-              </ColorBox>
-            ))}
-          </PaletteContainer>
-
-          <GenerateButton onPress={fetchPalette}>
-            <ButtonText>GERAR PALETA</ButtonText>
-          </GenerateButton>
-
-          <LogoutButton onPress={handleLogout}>
-            <LogoutButtonText>SAIR</LogoutButtonText>
-          </LogoutButton>
-        </>
-      )}
-    </Container>
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("GerarCor")}
+      >
+        <Text style={styles.buttonText}>GERAR UMA COR</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Login")}
+      >
+        <Text style={styles.buttonText}>SAIR</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5F5F5",
+  },
+  button: {
+    backgroundColor: "#28A9E1",
+    padding: 15,
+    borderRadius: 8,
+    marginVertical: 10,
+    width: "80%",
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+});
 
 export default Main;

@@ -1,5 +1,5 @@
 import React from "react";
-import Routes from "./src/routes";
+import Routes from "./src/Routes";
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 

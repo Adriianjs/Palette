@@ -1,38 +1,47 @@
-import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Main from "./pages/main";
 import Login from "./pages/login";
 import Cadastro from "./pages/cadastro";
-import { Ionicons } from "@expo/vector-icons";
+import Main from "./pages/main"; // Novo main
+import GerarCor from "./pages/gerarCor";
+import GerarPaleta from "./pages/gerarPaleta"; // Importando a nova tela
 
 const Stack = createStackNavigator();
 
 export default function Routes() {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-        headerBackTitleVisible: false,
-        headerTitle: "", // Remove o título
-        headerStyle: {
-          backgroundColor: "#F5F5F5", // Cor de fundo do seu app
-          elevation: 0, // Remove sombra no Android
-          shadowOpacity: 0, // Remove sombra no iOS
-        },
-        headerBackImage: () => (
-          <Ionicons name="arrow-back" size={24} color="#210518" />
-        ),
-      }}
-    >
+    <Stack.Navigator>
       <Stack.Screen
         name="Login"
         component={Login}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Main"
+        component={Main}
         options={{
-          headerLeft: null, // Remove o botão de voltar na tela de login
+          title: "Menu Principal",
+          headerLeft: null, // Remove o botão de voltar
         }}
       />
-      <Stack.Screen name="Main" component={Main} />
-      <Stack.Screen name="Cadastro" component={Cadastro} />
+
+      <Stack.Screen
+        name="GerarCor"
+        component={GerarCor}
+        options={{ title: "Gerador de Cor Única" }}
+      />
+
+      <Stack.Screen
+        name="GerarPaleta"
+        component={GerarPaleta} // Adicionando a nova tela
+        options={{ title: "Gerador de Paleta" }}
+      />
+
+      <Stack.Screen
+        name="Cadastro"
+        component={Cadastro}
+        options={{ title: "Cadastro de Usuário" }}
+      />
     </Stack.Navigator>
   );
 }
