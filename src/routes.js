@@ -1,9 +1,9 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "./pages/login";
 import Cadastro from "./pages/cadastro";
-import Main from "./pages/main"; // Novo main
+import Main from "./pages/main"; 
 import GerarCor from "./pages/gerarCor";
-import GerarPaleta from "./pages/gerarPaleta"; // Importando a nova tela
+import GerarPaleta from "./pages/gerarPaleta"; 
 
 const Stack = createStackNavigator();
 
@@ -21,7 +21,7 @@ export default function Routes() {
         component={Main}
         options={{
           title: "Menu Principal",
-          headerLeft: null, // Remove o botão de voltar
+          headerLeft: null, 
         }}
       />
 
@@ -33,7 +33,7 @@ export default function Routes() {
 
       <Stack.Screen
         name="GerarPaleta"
-        component={GerarPaleta} // Adicionando a nova tela
+        component={GerarPaleta} 
         options={{ title: "Gerador de Paleta" }}
       />
 

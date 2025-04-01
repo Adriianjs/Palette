@@ -1,7 +1,6 @@
 import styled from "styled-components/native";
 import { TouchableOpacity, TextInput, View, Modal } from "react-native";
 
-// Container principal
 export const Container = styled.View`
   flex: 1;
   background-color: #f5f5f5;
@@ -10,7 +9,6 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-// Botão gerador (comum a várias telas)
 export const GenerateButton = styled(TouchableOpacity)`
   background-color: #210518;
   padding: 15px 30px;
@@ -19,14 +17,12 @@ export const GenerateButton = styled(TouchableOpacity)`
   margin-vertical: 10px;
 `;
 
-// Texto do botão
 export const ButtonText = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 16px;
 `;
 
-// Quadrado de cor (tela GerarCor)
 export const ColorDisplay = styled(View)`
   width: 300px;
   height: 300px;
@@ -40,7 +36,6 @@ export const ColorDisplay = styled(View)`
   align-items: center;
 `;
 
-// Texto HEX com contraste adaptável
 export const HexText = styled.Text`
   font-size: 24px;
   font-weight: bold;
@@ -51,7 +46,6 @@ export const HexText = styled.Text`
       : "0px 1px 3px rgba(255,255,255,0.5)"};
 `;
 
-// Modal de edição
 export const ModalContainer = styled(View)`
   flex: 1;
   justify-content: center;
@@ -76,7 +70,6 @@ export const ColorInput = styled(TextInput)`
   margin-bottom: 15px;
 `;
 
-// Componentes da tela de paletas
 export const PaletteContainer = styled.View`
   width: 100%;
   margin-bottom: 30px;
@@ -95,14 +88,12 @@ export const ColorBox = styled(TouchableOpacity)`
   shadow-opacity: 0.2;
 `;
 
-// Loading
 export const LoadingContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
 
-// Botão de logout
 export const LogoutButton = styled(TouchableOpacity)`
   background-color: #210518;
   padding: 12px 30px;
@@ -116,4 +107,3 @@ export const LogoutButtonText = styled.Text`
   font-weight: bold;
   font-size: 16px;
 `;
-// Texto de cadastro

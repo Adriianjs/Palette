@@ -117,7 +117,6 @@ const GerarCor = () => {
         </Animated.View>
       </TouchableWithoutFeedback>
 
-      {/* Botão para gerar nova cor */}
       <TouchableWithoutFeedback
         onPress={() => {
           animatePress();
@@ -136,7 +135,6 @@ const GerarCor = () => {
         </Text>
       </TouchableWithoutFeedback>
 
-      {/* Novo botão para gerar paleta */}
       <TouchableWithoutFeedback
         onPress={() =>
           navigation.navigate("GerarPaleta", { baseColor: currentColor })
@@ -146,11 +144,12 @@ const GerarCor = () => {
           style={{
             fontSize: 40,
             color: "black",
+            textDecorationLine: "underline",
             marginTop: 20,
             padding: 10,
           }}
         >
-          🎨
+          Gerar Paleta
         </Text>
       </TouchableWithoutFeedback>
 

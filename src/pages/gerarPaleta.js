@@ -57,7 +57,6 @@ const GerarPaleta = () => {
   };
 
   const handleSaveColor = () => {
-    // Validar se é um código de cor hexadecimal válido
     if (/^#[0-9A-F]{6}$/i.test(baseColor)) {
       fetchPalette();
       setEditing(false);
@@ -71,7 +70,6 @@ const GerarPaleta = () => {
 
   return (
     <View style={styles.container}>
-
       <View style={styles.baseColorContainer}>
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>COR BASE</Text>
@@ -132,9 +130,8 @@ const GerarPaleta = () => {
         style={styles.actionButton}
         onPress={() => navigation.goBack()}
       >
-        <Text style={styles.actionButtonText}>Gerar nova paleta</Text>
+        <Text style={styles.actionButtonText}>Mudar cor</Text>
       </TouchableOpacity>
-
     </View>
   );
 };
